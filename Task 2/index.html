@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepThought - Dynamic Learning Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated Background Orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DeepThought</div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#courses" class="nav-link">My Courses</a>
+                <a href="#progress" class="nav-link">Progress</a>
+            </div>
+            <div class="nav-user">
+                <span class="user-name">Welcome, Student</span>
+                <div class="user-avatar" title="Profile">DT</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Container -->
+    <div class="container">
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header" id="dashboard">
+            <div class="header-content">
+                <h1>🎓 Learning Dashboard</h1>
+                <p>Track your progress and explore cutting-edge technology courses</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-action" id="btnRefresh">
+                    <span>🔄</span> Refresh
+                </button>
+                <button class="btn-action btn-primary" id="btnAddCourse">
+                    <span>➕</span> Add Course
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Filters Section -->
+        <div class="controls">
+            <div class="search-wrapper">
+                <input 
+                    type="text" 
+                    class="search-bar" 
+                    id="searchInput" 
+                    placeholder="🔍 Search courses by title, description, or instructor..."
+                >
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="filters" id="filtersContainer">
+                <button class="filter-btn active" data-filter="all">
+                    <span>📚</span> All Courses
+                </button>
+                <button class="filter-btn" data-filter="frontend">
+                    <span>🎨</span> Frontend
+                </button>
+                <button class="filter-btn" data-filter="backend">
+                    <span>⚙️</span> Backend
+                </button>
+                <button class="filter-btn" data-filter="database">
+                    <span>🗄️</span> Database
+                </button>
+                <button class="filter-btn" data-filter="devops">
+                    <span>🚀</span> DevOps
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="stats-section" id="progress">
+            <h2 class="section-title">📊 Your Learning Statistics</h2>
+            <div class="stats-grid" id="statsGrid"></div>
+        </div>
+
+        <!-- Courses Section -->
+        <div class="courses-section" id="courses">
+            <div class="section-header">
+                <h2 class="section-title">🎯 Available Courses</h2>
+                <div class="sort-dropdown">
+                    <select id="sortCourses" class="sort-select">
+                        <option value="default">Sort by: Default</option>
+                        <option value="progress">Progress</option>
+                        <option value="difficulty">Difficulty</option>
+                        <option value="enrolled">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+            <div class="courses-grid" id="coursesGrid"></div>
+        </div>
+
+        <!-- Achievement Section -->
+        <div class="achievements-section">
+            <h2 class="section-title">🏆 Recent Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎖️</div>
+                    <h3>First Course</h3>
+                    <p>Started your learning journey</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚡</div>
+                    <h3>Fast Learner</h3>
+                    <p>Completed 3 lessons in one day</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔥</div>
+                    <h3>On Fire</h3>
+                    <p>7 day learning streak</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">💎</div>
+                    <h3>Code Master</h3>
+                    <p>Completed 50% of JavaScript course</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Course Detail Modal -->
+    <div class="modal" id="courseModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Enhanced Premium Footer (Same as Task 1) -->
+    <footer class="footer">
+        <div class="footer-content">
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>Stay Updated with DeepThought</h3>
+                        <p>Get the latest updates on courses, technology trends, and exclusive insights</p>
+                    </div>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" id="newsletterEmail">
+                        <button class="newsletter-btn" id="newsletterBtn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="footer-stats">
+                <div class="stat-item">
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Active Learners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">200+</div>
+                    <div class="stat-label">Expert Courses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">95%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+
+            <!-- Footer Main Content -->
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">DeepThought</div>
+                    <p class="footer-tagline">Transforming Education Through Psychology & Technology</p>
+                    <p class="footer-description">
+                        We blend cutting-edge technology with psychological research to create 
+                        innovative learning experiences that truly transform lives.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" title="Facebook">
+                            <span class="social-icon">📘</span>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <span class="social-icon">🐦</span>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <span class="social-icon">💼</span>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <span class="social-icon">📸</span>
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <span class="social-icon">📺</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#">Courses</a></li>
+                            <li><a href="#">Internships</a></li>
+                            <li><a href="#">Certifications</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Projects</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">API Reference</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Status</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Licenses</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 DeepThought EduTech Ventures. All rights reserved.</p>
+                    <p class="footer-love">Made with <span class="heart">❤️</span> for the future of education</p>
+                </div>
+                <div class="footer-badges">
+                    <span class="badge">🏆 Best EdTech 2024</span>
+                    <span class="badge">⭐ 4.9/5 Rating</span>
+                    <span class="badge">🔒 Secure Platform</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
